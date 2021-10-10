@@ -1,2 +1,5 @@
 /bin/
 /node_modules/
+/AWSCLIV2.pkg
+/tsconfig.json
+/kubectl

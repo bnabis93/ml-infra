@@ -6,3 +6,4 @@
 ![image01](./image/features.png)
 
 ## Architecture
+![image02](./image/architecture.png)
