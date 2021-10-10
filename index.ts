@@ -94,14 +94,15 @@ new TraefikRoute('mlflow-route', {
 
 //Setting the zone
 const selected = aws.route53.getZone({
-    name: "ml.bono.com.",
+    name: "aebono.com",
     privateZone: false,
 });
   
 //Make sure that ml.aporia.com is routed to Traefik
+//TODO : Buy domain and hosted from aebono.com
 new aws.route53.Record("dns-record", {
     zoneId: selected.then(selected => selected.zoneId),
-    name: selected.then(selected => `www.${selected.name}`),
+    name: selected.then(selected => `ml.${selected.name}`),
     type: "CNAME",
     ttl: 300,
     records: [traefik.getResource('v1/Service', 'traefik').status.loadBalancer.ingress[0].hostname],
